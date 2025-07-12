@@ -19,6 +19,9 @@ public class StroopManager : MonoBehaviour
 
     [Header("Leistungsdaten")]
     private int errorCount = 0;
+    private float stimulusStartTime;
+    private List<float> reactionTimes = new List<float>();
+
 
     private void Start()
     {
@@ -67,10 +70,15 @@ public class StroopManager : MonoBehaviour
         currentStimulus = stimulusList[currentTrialIndex];
         stimulusText.text = currentStimulus.word;
         stimulusText.color = currentStimulus.color;
+        stimulusStartTime = Time.time;
+
     }
 
     public void EvaluateAnswer(string selectedColor)
     {
+        float reactionTime = Time.time - stimulusStartTime;
+        reactionTimes.Add(reactionTime);
+
         string actualColor = ColorToName(currentStimulus.color);
 
         bool isCorrect = selectedColor.ToLower() == actualColor.ToLower();
@@ -90,9 +98,19 @@ public class StroopManager : MonoBehaviour
 
     private void EndTask()
     {
+        float averageRT = 0f;
+        if (reactionTimes.Count > 0)
+        {
+            float sum = 0f;
+            foreach (float rt in reactionTimes)
+                sum += rt;
+
+            averageRT = sum / reactionTimes.Count;
+        }
+
         stimulusText.text = "";
         resultCanvas.SetActive(true);
-        resultText.text = $"Fehler: {errorCount} von {totalTrials}";
+        resultText.text = $"Fehler: {errorCount} von {totalTrials}\nØ Reaktionszeit: {averageRT:F2} Sekunden";
         uiFlow.EndTask();
     }
 

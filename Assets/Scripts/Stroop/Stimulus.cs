@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stimulus : MonoBehaviour
+public class Stimulus
 {
     public string word;       // Das Wort, das angezeigt wird (z.B. "Rot")
     public Color color;       // Die Farbe, in der das Wort erscheint (z.B. blau)
