@@ -78,6 +78,6 @@ public class MenuMain : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene("1 MainMenu");
+        SceneManager.LoadScene("StroopTest");
     }
 }
