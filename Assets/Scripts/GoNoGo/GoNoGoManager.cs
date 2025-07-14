@@ -15,6 +15,9 @@ public class GoNoGoManager : MonoBehaviour
     [SerializeField] private Color goColor = Color.green;
     [SerializeField] private Color noGoColor = Color.red;
     [SerializeField] private float stimulusInterval = 1.0f;
+    [SerializeField] private List<Transform> spawnPoints;
+    [SerializeField] private GameObject stimulusObject; // Kugel selbst
+
 
     [Header("Input")]
     [SerializeField] private InputActionProperty triggerAction;
@@ -105,8 +108,18 @@ public class GoNoGoManager : MonoBehaviour
     {
         isGoStimulus = (Random.value > 0.5f);
         stimulusRenderer.material.color = isGoStimulus ? goColor : noGoColor;
+        MoveStimulusToRandomPosition();
         stimulusStartTime = Time.time;
     }
+
+    private void MoveStimulusToRandomPosition()
+    {
+        if (spawnPoints.Count == 0) return;
+
+        int index = Random.Range(0, spawnPoints.Count);
+        stimulusObject.transform.position = spawnPoints[index].position;
+    }
+
 
     private void EndTask()
     {

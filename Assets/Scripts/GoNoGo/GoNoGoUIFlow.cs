@@ -8,8 +8,10 @@ public class GoNoGoUIFlow : MonoBehaviour
     [SerializeField] private GameObject instructionCanvas;
     [SerializeField] private GameObject controlCanvas;
     [SerializeField] private GameObject stimulusSphere;
-    //[SerializeField] private GameObject leftHand;
+    //[SerializeField] private GameObject leftrayInteractor;
     [SerializeField] private GameObject rightrayInteractor;
+    [SerializeField] private GameObject stimulusSpawnPoints;
+
 
     public void ShowControls()
     {
@@ -23,6 +25,8 @@ public class GoNoGoUIFlow : MonoBehaviour
         stimulusSphere.SetActive(true);
         //leftHand.SetActive(false);
         rightrayInteractor.SetActive(false);
+        stimulusSpawnPoints.SetActive(true);
+
 
         // Starte ggf. Task-Logik hier
         // FindObjectOfType<GoNoGoManager>().BeginTask();
@@ -31,6 +35,7 @@ public class GoNoGoUIFlow : MonoBehaviour
     public void EndTask()
     {
         stimulusSphere.SetActive(false);
+        stimulusSpawnPoints.SetActive(false);
         rightrayInteractor.SetActive(true);
         //leftHand.SetActive(true);
         // Optional: Nächstes UI anzeigen
