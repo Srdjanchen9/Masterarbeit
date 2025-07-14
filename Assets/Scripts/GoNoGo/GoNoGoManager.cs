@@ -140,8 +140,8 @@ public class GoNoGoManager : MonoBehaviour
         }
 
         // UI anzeigen
-        resultText.text = $"Task beendet!\nFehlerquote: {errorRate:F1}%\nDurchschnittliche Reaktionszeit: {avgRT:F2}s";
         endCanvas.SetActive(true);
+        resultText.text = $"Task beendet!\nFehlerquote: {errorRate:F1}%\nDurchschnittliche Reaktionszeit: {avgRT:F2}s";
         uiFlow.EndTask();
 
     }
