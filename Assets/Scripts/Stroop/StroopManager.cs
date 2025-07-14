@@ -16,6 +16,11 @@ public class StroopManager : MonoBehaviour
     private int currentTrialIndex = 0;
     private List<Stimulus> stimulusList = new List<Stimulus>();
     private Stimulus currentStimulus;
+    [SerializeField] private List<Transform> cubeSpawnPositions;
+    [SerializeField] private GameObject redCube;
+    [SerializeField] private GameObject greenCube;
+    [SerializeField] private GameObject blueCube;
+
 
     [Header("Leistungsdaten")]
     private int errorCount = 0;
@@ -71,6 +76,8 @@ public class StroopManager : MonoBehaviour
         stimulusText.text = currentStimulus.word;
         stimulusText.color = currentStimulus.color;
         stimulusStartTime = Time.time;
+        PlaceCubesRandomly();
+
 
     }
 
@@ -95,6 +102,36 @@ public class StroopManager : MonoBehaviour
         if (color == Color.blue) return "blau";
         return "unbekannt";
     }
+
+    private void PlaceCubesRandomly()
+    {
+        // Kopie der Positionen, um Wiederholungen zu vermeiden
+        List<Transform> availablePositions = new List<Transform>(cubeSpawnPositions);
+
+        // Wähle zufällig Positionen für die 3 Würfel
+        Transform redPos = GetRandomPosition(ref availablePositions);
+        Transform greenPos = GetRandomPosition(ref availablePositions);
+        Transform bluePos = GetRandomPosition(ref availablePositions);
+
+        // Positioniere die Würfel
+        redCube.transform.position = redPos.position;
+        greenCube.transform.position = greenPos.position;
+        blueCube.transform.position = bluePos.position;
+
+        redCube.GetComponent<CubeFadeIn>().StartFade();
+        greenCube.GetComponent<CubeFadeIn>().StartFade();
+        blueCube.GetComponent<CubeFadeIn>().StartFade();
+
+    }
+
+    private Transform GetRandomPosition(ref List<Transform> positions)
+    {
+        int index = Random.Range(0, positions.Count);
+        Transform selected = positions[index];
+        positions.RemoveAt(index); // Stelle sicher, dass Position nicht doppelt vergeben wird
+        return selected;
+    }
+
 
     private void EndTask()
     {

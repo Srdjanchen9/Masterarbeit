@@ -9,6 +9,7 @@ public class StroopUIFlow : MonoBehaviour
     [SerializeField] private GameObject redCube;
     [SerializeField] private GameObject blueCube;
     [SerializeField] private GameObject greenCube;
+    [SerializeField] private GameObject stimulusSpawnPoints;
 
     public void ShowControls()
     {
@@ -22,6 +23,8 @@ public class StroopUIFlow : MonoBehaviour
         redCube.SetActive(true);
         blueCube.SetActive(true);
         greenCube.SetActive(true);
+        stimulusSpawnPoints.SetActive(true);
+
        
 
         
@@ -32,5 +35,6 @@ public class StroopUIFlow : MonoBehaviour
         redCube.SetActive(false);
         blueCube.SetActive(false);
         greenCube.SetActive(false);
+        stimulusSpawnPoints.SetActive(false);
     }
 }
