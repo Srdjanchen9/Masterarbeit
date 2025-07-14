@@ -148,7 +148,7 @@ public class GoNoGoManager : MonoBehaviour
     public void LoadNextScene()
     {
         // Erhöhe ggf. den Index oder gib expliziten Szenennamen an
-        SceneManager.LoadScene("MOT");
+        SceneManager.LoadScene("MainMenu");
     }
 
 }

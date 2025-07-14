@@ -24,19 +24,15 @@ public class MenuMain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EnableMainMenu();
+        //EnableMainMenu();
 
         //Hook events
         startButton.onClick.AddListener(StartGame);
         //optionButton.onClick.AddListener(EnableOption);
         //aboutButton.onClick.AddListener(EnableAbout);
         quitButton.onClick.AddListener(QuitGame);
-        backtoMainMenuButton.onClick.AddListener(BackToMainMenu);
+        //backtoMainMenuButton.onClick.AddListener(BackToMainMenu);
 
-        foreach (var item in returnButtons)
-        {
-            item.onClick.AddListener(EnableMainMenu);
-        }
     }
 
     public void QuitGame()
@@ -46,38 +42,10 @@ public class MenuMain : MonoBehaviour
 
     public void StartGame()
     {
-        HideAll();
         SceneManager.LoadScene("2 StroopTest");
     }
-
-    public void HideAll()
-    {
-        mainMenu.SetActive(false);
-        //options.SetActive(false);
-        //about.SetActive(false);
-    }
-
-    public void EnableMainMenu()
-    {
-        mainMenu.SetActive(true);
-        //options.SetActive(false);
-        //about.SetActive(false);
-    }
-    public void EnableOption()
-    {
-        mainMenu.SetActive(false);
-        //options.SetActive(true);
-        //about.SetActive(false);
-    }
-    public void EnableAbout()
-    {
-        mainMenu.SetActive(false);
-        //options.SetActive(false);
-        //about.SetActive(true);
-    }
-
-    public void BackToMainMenu()
-    {
-        SceneManager.LoadScene("StroopTest");
-    }
+    //public void BackToMainMenu()
+    //{
+       // SceneManager.LoadScene("");
+    //}
 }
