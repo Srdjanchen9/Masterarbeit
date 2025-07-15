@@ -24,6 +24,8 @@ public class MOTUIFlow : MonoBehaviour
 
     public void StartTask()
     {
+        Debug.Log("StartTask() aufgerufen");
+
         controlCanvas.SetActive(false);
         firstCube.SetActive(true);
         secondCube.SetActive(true);
