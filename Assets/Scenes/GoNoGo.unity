@@ -1746,7 +1746,7 @@ MonoBehaviour:
     m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   endCanvas: {fileID: 1437302579}
-  resultText: {fileID: 1970515004}
+  resultText: {fileID: 1410342161}
   uiFlow: {fileID: 527264584}
   taskDuration: 60
 --- !u!1 &555987046

@@ -145,10 +145,15 @@ public class GoNoGoManager : MonoBehaviour
         uiFlow.EndTask();
 
     }
+    //public void LoadNextScene()
+    //{
+    // Erhöhe ggf. den Index oder gib expliziten Szenennamen an
+    //SceneManager.LoadScene("MainMenu");
+    //}
+
     public void LoadNextScene()
     {
-        // Erhöhe ggf. den Index oder gib expliziten Szenennamen an
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MOT");
     }
 
 }

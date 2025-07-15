@@ -42,10 +42,7 @@ public class MenuMain : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("2 StroopTest");
+        SceneManager.LoadScene("StroopTest");
     }
-    //public void BackToMainMenu()
-    //{
-       // SceneManager.LoadScene("");
-    //}
+    
 }
