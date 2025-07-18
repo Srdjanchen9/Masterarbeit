@@ -28,7 +28,7 @@ public class StroopUIFlow : MonoBehaviour
         stimulusCanvas.SetActive(true);
 
 
-
+        FindObjectOfType<StroopManager>().StartStroopTask();
 
     }
 

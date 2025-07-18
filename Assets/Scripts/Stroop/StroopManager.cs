@@ -24,6 +24,8 @@ public class StroopManager : MonoBehaviour
     [SerializeField] private float reactionTimeout = 5f;
     private bool hasAnswered = false;
     private Coroutine timeoutCoroutine;
+    private bool inputAllowed = false;
+
 
 
 
@@ -38,7 +40,7 @@ public class StroopManager : MonoBehaviour
     {
         resultCanvas.SetActive(false);
         GenerateStimuli();      // Erstellt Wort-Farb-Paare
-        ShowNextStimulus();     // Zeigt den ersten Stimulus an
+        //ShowNextStimulus();     // Zeigt den ersten Stimulus an
     }
 
     private void GenerateStimuli()
@@ -74,39 +76,40 @@ public class StroopManager : MonoBehaviour
     {
         if (currentTrialIndex >= totalTrials)
         {
-            EndTask(); // wenn alle durch → Endbildschirm
+            EndTask();
             return;
         }
 
         currentStimulus = stimulusList[currentTrialIndex];
         stimulusText.text = currentStimulus.word;
         stimulusText.color = currentStimulus.color;
-        stimulusStartTime = Time.time;
         PlaceCubesRandomly();
 
         hasAnswered = false;
+        inputAllowed = false; // Noch keine Eingabe erlaubt
 
-        // Vorherige Coroutine stoppen, falls vorhanden
+        // Sicherer Delay, damit versehentliche Klicks vermieden werden
+        StartCoroutine(EnableInputAfterDelay(0.9f));
+
+        stimulusStartTime = Time.time;
+
         if (timeoutCoroutine != null)
-        {
             StopCoroutine(timeoutCoroutine);
-        }
 
-        timeoutCoroutine = StartCoroutine(ReactionTimeout());
-
-
-
+        timeoutCoroutine = StartCoroutine(StartTimeoutWithDelay());
+        
     }
+
 
     public void EvaluateAnswer(string selectedColor)
     {
-        if (hasAnswered) return;
+        if (hasAnswered || !inputAllowed) return; // Eingabe ignorieren, falls zu früh
         hasAnswered = true;
 
         float reactionTime = Time.time - stimulusStartTime;
         reactionTimes.Add(reactionTime);
 
-        string actualColor = currentStimulus.word.ToLower(); // Achtung: umgedrehte Variante!
+        string actualColor = currentStimulus.word.ToLower();
         bool isCorrect = selectedColor.ToLower() == actualColor;
 
         if (!isCorrect) errorCount++;
@@ -114,6 +117,7 @@ public class StroopManager : MonoBehaviour
         currentTrialIndex++;
         ShowNextStimulus();
     }
+
 
 
     private string ColorToName(Color color)
@@ -166,6 +170,19 @@ public class StroopManager : MonoBehaviour
         }
     }
 
+    private IEnumerator EnableInputAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        inputAllowed = true;
+    }
+
+    public bool InputAllowed()
+    {
+        return inputAllowed;
+    }
+
+
+
 
     private void EndTask()
     {
@@ -184,6 +201,22 @@ public class StroopManager : MonoBehaviour
         resultText.text = $"Fehler: {errorCount} von {totalTrials}\nØ Reaktionszeit: {averageRT:F2} Sekunden";
         uiFlow.EndTask();
     }
+
+    private IEnumerator StartTimeoutWithDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        timeoutCoroutine = StartCoroutine(ReactionTimeout());
+    }
+
+
+    public void StartStroopTask()
+    {
+        currentTrialIndex = 0;
+        errorCount = 0;
+        reactionTimes.Clear();
+        ShowNextStimulus();
+    }
+
 
     public void LoadNextScene()
     {

@@ -8,6 +8,11 @@ public class ColorSelector : MonoBehaviour
 
     public void OnSelected()
     {
-        FindObjectOfType<StroopManager>().EvaluateAnswer(colorName);
+        StroopManager manager = FindObjectOfType<StroopManager>();
+        if (manager != null && manager.InputAllowed()) // nur wenn erlaubt
+        {
+            manager.EvaluateAnswer(colorName);
+        }
     }
+
 }
