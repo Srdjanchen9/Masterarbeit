@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StroopManager : MonoBehaviour
@@ -20,6 +21,11 @@ public class StroopManager : MonoBehaviour
     [SerializeField] private GameObject redCube;
     [SerializeField] private GameObject greenCube;
     [SerializeField] private GameObject blueCube;
+    [SerializeField] private float reactionTimeout = 5f;
+    private bool hasAnswered = false;
+    private Coroutine timeoutCoroutine;
+
+
 
 
     [Header("Leistungsdaten")]
@@ -78,22 +84,37 @@ public class StroopManager : MonoBehaviour
         stimulusStartTime = Time.time;
         PlaceCubesRandomly();
 
+        hasAnswered = false;
+
+        // Vorherige Coroutine stoppen, falls vorhanden
+        if (timeoutCoroutine != null)
+        {
+            StopCoroutine(timeoutCoroutine);
+        }
+
+        timeoutCoroutine = StartCoroutine(ReactionTimeout());
+
+
 
     }
 
     public void EvaluateAnswer(string selectedColor)
     {
+        if (hasAnswered) return;
+        hasAnswered = true;
+
         float reactionTime = Time.time - stimulusStartTime;
         reactionTimes.Add(reactionTime);
 
-        string actualColor = ColorToName(currentStimulus.color);
+        string actualColor = currentStimulus.word.ToLower(); // Achtung: umgedrehte Variante!
+        bool isCorrect = selectedColor.ToLower() == actualColor;
 
-        bool isCorrect = selectedColor.ToLower() == actualColor.ToLower();
         if (!isCorrect) errorCount++;
 
         currentTrialIndex++;
         ShowNextStimulus();
     }
+
 
     private string ColorToName(Color color)
     {
@@ -130,6 +151,19 @@ public class StroopManager : MonoBehaviour
         Transform selected = positions[index];
         positions.RemoveAt(index); // Stelle sicher, dass Position nicht doppelt vergeben wird
         return selected;
+    }
+
+    private IEnumerator ReactionTimeout()
+    {
+        yield return new WaitForSeconds(reactionTimeout);
+
+        if (!hasAnswered)
+        {
+            reactionTimes.Add(reactionTimeout);
+            errorCount++;
+            currentTrialIndex++;
+            ShowNextStimulus();
+        }
     }
 
 

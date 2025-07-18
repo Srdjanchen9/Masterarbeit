@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,10 +8,15 @@ using UnityEngine.SceneManagement;
 public class MOTManager : MonoBehaviour
 {
     [Header("Setup")]
-    [SerializeField] private List<GameObject> allBalls; // z. B. alle Kugeln
+    [SerializeField] private List<GameObject> allBalls;
     [SerializeField] private int totalTrials = 5;
-    [SerializeField] private float movementDuration = 5f;
-    [SerializeField] private float speed = 1f; // Startgeschwindigkeit der Kugeln
+    [SerializeField] private float initialSpeed = 1f;
+    [SerializeField] private int initialBallCount = 8;
+    [SerializeField] private int maxBallCount = 20;
+
+    [Header("Difficulty Settings")]
+    [SerializeField] private float speedIncrementPerTrial = 0.2f;
+    [SerializeField] private int ballsIncrementPerTrial = 2;
 
     [Header("UI")]
     [SerializeField] private GameObject resultCanvas;
@@ -24,39 +30,47 @@ public class MOTManager : MonoBehaviour
     private float selectionStartTime;
     private List<float> reactionTimes = new List<float>();
 
+    private float currentSpeed;
+    private int currentBallCount;
+
     void Start()
     {
         resultCanvas.SetActive(false);
-        //AssignRandomColors(); // Wird über UIFlow gestartet
 
-        // Rigidbody-Setup sicherstellen
+        currentSpeed = initialSpeed;
+        currentBallCount = initialBallCount;
+
         foreach (var ball in allBalls)
         {
             Rigidbody rb = ball.GetComponent<Rigidbody>();
-            if (rb == null)
-                rb = ball.AddComponent<Rigidbody>();
+            if (rb == null) rb = ball.AddComponent<Rigidbody>();
 
             rb.useGravity = false;
             rb.isKinematic = false;
+            rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
+            if (!ball.TryGetComponent<MOTBallPhysics>(out _))
+                ball.AddComponent<MOTBallPhysics>();
         }
     }
 
     public void AssignRandomColors()
     {
-        float radius = 2.5f;             // Radius des Spawnraums
-        float minDistance = 0.6f;        // Mindestabstand zwischen Kugeln
+        float radius = 2.5f;
+        float minDistance = 0.6f;
         List<Vector3> usedPositions = new List<Vector3>();
 
         for (int i = 0; i < allBalls.Count; i++)
-        {
             allBalls[i].SetActive(false);
 
+        for (int i = 0; i < currentBallCount; i++)
+        {
             Vector3 randomPos;
             int tries = 0;
             do
             {
                 randomPos = transform.position + Random.insideUnitSphere * radius;
-                randomPos.y = Mathf.Clamp(randomPos.y, 0.2f, 2.5f); // Optional: Höhenbegrenzung
+                randomPos.y = Mathf.Clamp(randomPos.y, 0.2f, 2.5f);
                 tries++;
             }
             while (!IsPositionValid(randomPos, usedPositions, minDistance) && tries < 100);
@@ -65,16 +79,14 @@ public class MOTManager : MonoBehaviour
             allBalls[i].transform.position = randomPos;
 
             Rigidbody rb = allBalls[i].GetComponent<Rigidbody>();
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
+            var physics = allBalls[i].GetComponent<MOTBallPhysics>();
+            physics.StopBall();
+
         }
 
+        targetIndex = Random.Range(0, currentBallCount);
 
-
-
-        targetIndex = Random.Range(0, allBalls.Count);
-
-        for (int i = 0; i < allBalls.Count; i++)
+        for (int i = 0; i < currentBallCount; i++)
         {
             Renderer rend = allBalls[i].GetComponent<Renderer>();
             rend.material.color = (i == targetIndex) ? Color.green : Color.red;
@@ -86,35 +98,30 @@ public class MOTManager : MonoBehaviour
     private bool IsPositionValid(Vector3 newPos, List<Vector3> existingPositions, float minDistance)
     {
         foreach (var pos in existingPositions)
-        {
             if (Vector3.Distance(newPos, pos) < minDistance)
                 return false;
-        }
         return true;
     }
 
-
     IEnumerator MoveBalls()
     {
-        yield return new WaitForSeconds(2f); // Markierungszeit
+        yield return new WaitForSeconds(2f);
 
-        foreach (var ball in allBalls)
+        for (int i = 0; i < currentBallCount; i++)
         {
-            ball.SetActive(true);
+            allBalls[i].SetActive(true);
 
             Vector3 dir = Random.onUnitSphere.normalized;
-            Rigidbody rb = ball.GetComponent<Rigidbody>();
-            rb.AddForce(dir * speed, ForceMode.VelocityChange);
-
-            Debug.Log($"Ball {ball.name} bewegt sich in Richtung {dir}");
+            var physics = allBalls[i].GetComponent<MOTBallPhysics>();
+            physics.Launch(dir, currentSpeed);
         }
 
-        yield return new WaitForSeconds(movementDuration);
+        yield return new WaitForSeconds(5f);
 
-        foreach (var ball in allBalls)
+        for (int i = 0; i < currentBallCount; i++)
         {
-            ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            ball.GetComponent<Renderer>().material.color = Color.gray;
+            allBalls[i].GetComponent<MOTBallPhysics>().StopBall();
+            allBalls[i].GetComponent<Renderer>().material.color = Color.gray;
         }
 
         selectionStartTime = Time.time;
@@ -136,6 +143,9 @@ public class MOTManager : MonoBehaviour
         }
         else
         {
+            // Schwierigkeit erhöhen
+            currentSpeed += speedIncrementPerTrial;
+            currentBallCount = Mathf.Min(currentBallCount + ballsIncrementPerTrial, maxBallCount);
             AssignRandomColors();
         }
     }
@@ -151,7 +161,7 @@ public class MOTManager : MonoBehaviour
         }
 
         resultCanvas.SetActive(true);
-        resultText.text = $"Du hast {correctSelections} von {totalTrials} korrekt erkannt!\nØ Reaktionszeit: {avgTime:F2} Sekunden";
+        resultText.text = $"Du hast {correctSelections} von {totalTrials} korrekt erkannt!\n\u00d8 Reaktionszeit: {avgTime:F2} Sekunden";
 
         uiFlow.EndTask();
     }
