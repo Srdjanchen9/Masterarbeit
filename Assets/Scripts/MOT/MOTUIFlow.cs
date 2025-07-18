@@ -27,6 +27,7 @@ public class MOTUIFlow : MonoBehaviour
     [SerializeField] private GameObject cubeNineteen;
     [SerializeField] private GameObject cubeTwenty;
     [SerializeField] private GameObject stimulusSpawnPoints;
+    [SerializeField] private GameObject room;
     [SerializeField] private MOTManager motManager;
 
     public void ShowControls()
@@ -54,6 +55,7 @@ public class MOTUIFlow : MonoBehaviour
         cubeNineteen.SetActive(false);
         cubeTwenty.SetActive(false);
         stimulusSpawnPoints.SetActive(false);
+        room.SetActive(false);
     }
 
     public void StartTask()
@@ -80,6 +82,7 @@ public class MOTUIFlow : MonoBehaviour
         cubeNineteen.SetActive(true);
         cubeTwenty.SetActive(true);
         stimulusSpawnPoints.SetActive(true);
+        room.SetActive(true);
 
         motManager.AssignRandomColors(); // Startet die Kugelbewegung
     }
@@ -107,6 +110,7 @@ public class MOTUIFlow : MonoBehaviour
         cubeNineteen.SetActive(false);
         cubeTwenty.SetActive(false);
         stimulusSpawnPoints.SetActive(false);
+        room.SetActive(false);
     }
 
 }
