@@ -4189,7 +4189,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\nMerke dir gr\xFCn markierte Kugel und dr\xFCcke die Greiftaste (Mittelfinger),
+  m_text: "\n\nMerke dir gr\xFCn markierte Kugel und dr\xFCcke die Triggertaste (Zeigefinger),
     um sie auszuw\xE4hlen."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

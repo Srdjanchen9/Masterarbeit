@@ -35,6 +35,6 @@ public class MOTBallPhysics : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        rb.isKinematic = true; // ❗ Bewegung einfrieren
+        rb.isKinematic = true; // Bewegung einfrieren
     }
 }
