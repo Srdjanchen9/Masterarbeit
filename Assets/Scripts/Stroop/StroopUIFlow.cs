@@ -11,11 +11,13 @@ public class StroopUIFlow : MonoBehaviour
     [SerializeField] private GameObject greenCube;
     [SerializeField] private GameObject stimulusSpawnPoints;
     [SerializeField] private GameObject stimulusCanvas;
+    [SerializeField] private GameObject room;
 
     public void ShowControls()
     {
         instructionCanvas.SetActive(false);
         controlCanvas.SetActive(true);
+        room.SetActive(false);
     }
 
     public void StartTask()
@@ -26,6 +28,8 @@ public class StroopUIFlow : MonoBehaviour
         greenCube.SetActive(true);
         stimulusSpawnPoints.SetActive(true);
         stimulusCanvas.SetActive(true);
+        room.SetActive(true);  
+
 
 
         FindObjectOfType<StroopManager>().StartStroopTask();
@@ -39,5 +43,6 @@ public class StroopUIFlow : MonoBehaviour
         greenCube.SetActive(false);
         stimulusSpawnPoints.SetActive(false);
         stimulusCanvas.SetActive(false);
+        room.SetActive(false);
     }
 }

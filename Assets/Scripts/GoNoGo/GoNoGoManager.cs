@@ -31,7 +31,7 @@ public class GoNoGoManager : MonoBehaviour
     [Header("Task Duration Settings")]
     [SerializeField] private float taskDuration = 60f; // Total Task Duration
     private float taskTimer = 0f;
-    private bool taskIsRunning = true;
+    private bool taskIsRunning = false;
 
     private float stimulusTimer = 0f;
     private float stimulusStartTime;
@@ -57,8 +57,18 @@ public class GoNoGoManager : MonoBehaviour
     void Start()
     {
         stimulusRenderer.material.color = Color.black;
+        taskIsRunning = false;
+    }
+
+    public void BeginTask()
+    {
+        taskIsRunning = true;
+        taskTimer = 0f;
+        stimulusTimer = 0f;
+        timeSinceLastIncrease = 0f;
         ShowNextStimulus();
     }
+
 
     void Update()
     {
