@@ -805,7 +805,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fortfahren
+  m_text: Steuerung
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -832,8 +832,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4189,8 +4189,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\nMerke dir gr\xFCn markierte Kugel und dr\xFCcke die Triggertaste (Zeigefinger),
-    um sie auszuw\xE4hlen."
+  m_text: "\n\nMerke dir gr\xFCn markierte Kugel, benutze deinen Controller, um auf
+    sie zu zeigen und dr\xFCcke anschlie\xDFend die Triggertaste (Taste, auf welcher
+    dein Zeigefinger liegt), um sie auszuw\xE4hlen."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -4217,8 +4218,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8522,8 +8523,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9398,10 +9399,12 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\n\n\nDieser Test verbessert deine visuelle Aufmerksamkeit und Wahrnehmung,
     dein Arbeitsged\xE4chtnis und deine F\xE4higkeit, mehrere Objekte gleichzeitig
-    im Blick zu behalten \u2013 essenziell f\xFCr das periphere Sehen im Spiel.\n\nMerke
-    dir die gr\xFCn markierte Kugel \u2013 verfolge sie w\xE4hrend der Bewegung und
-    w\xE4hle sie danach aus!\n\nMit jeder neuen Runde nimmt die Anzahl und die Geschwindigkeit
-    der B\xE4lle zu.\n"
+    im Blick zu behalten \u2013 essenziell f\xFCr das periphere Sehen im Spiel.\n\nIn
+    dieser \xDCbung bewegen sich s\xE4mtliche B\xE4lle im Raum herum, eine gr\xFCne
+    und ansonsten nur rote Kugeln. Nach einigen Sekunden bleiben alle B\xE4lle stehen
+    und nehmen eine graue Farbe an. Merke dir die gr\xFCn markierte Kugel \u2013
+    verfolge sie w\xE4hrend der Bewegung und w\xE4hle sie anschlie\xDFend aus!\n\nMit
+    jeder neuen Runde nimmt die Anzahl und die Geschwindigkeit der B\xE4lle zu.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -9428,8 +9431,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

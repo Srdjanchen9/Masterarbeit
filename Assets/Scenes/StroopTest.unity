@@ -279,13 +279,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\n\nDieser Test trainiert deine kognitive Kontrolle und Reaktionshemmung
+  m_text: "\n\n\n\nDieser Test trainiert deine kognitive Kontrolle und Reaktionshemmung
     \u2013 also die F\xE4higkeit, automatische Impulse zu unterdr\xFCcken und konfliktreiche
-    Reize richtig zu verarbeiten.\n\nW\xE4hle den farblich passenden W\xFCrfel \u2013
-    nicht nach der Farbe, sondern nach dem Wort! \n\nBeispiel: Steht das Wort \u201EGr\xFCn\u201C
-    in roter Farbe, musst du den gr\xFCnen W\xFCrfel ausw\xE4hlen.\n\nReagiere schnell,
-    aber pr\xE4zise \u2013 du hast nur einen kurzen Moment, um die richtige Entscheidung
-    zu treffen."
+    Reize richtig zu verarbeiten.\n\nIn dieser \xDCbung erscheinen drei W\xFCrfel
+    irgendwo im Raum, jeweils in roter, gr\xFCner und blauer Farbe. Vor dir erscheint
+    nach und nach der Name einer dieser drei Farben in einer dieser drei Farben.
+    W\xE4hle den farblich passenden W\xFCrfel \u2013 nicht nach der Farbe, sondern
+    nach dem Wort! \n\nBeispiel a): Steht das Wort \u201EGr\xFCn\u201C in roter Farbe,
+    musst du den gr\xFCnen W\xFCrfel ausw\xE4hlen.\n\nBeispiel b): Steht das Wort
+    \"Rot\" in blauer Farbe, musst du den roten W\xFCrfel ausw\xE4hlen.\n\nReagiere
+    schnell, aber pr\xE4zise \u2013 du hast nur einen kurzen Moment, um die richtige
+    Entscheidung zu treffen."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -312,8 +316,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -650,7 +654,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fortfahren
+  m_text: Steuerung
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -677,8 +681,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2666,8 +2670,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\nSchaue auf einen W\xFCrfel und dr\xFCcke die Triggetaste (Zeigefinger),
-    um ihn auszuw\xE4hlen."
+  m_text: "\n\nNachdem das Wort erscheint, suche schnell nach dem richtigen W\xFCrfel,
+    benutze deinen Controller, um auf ihn zu zeigen und dr\xFCcke die Triggetaste
+    (Taste, auf welcher dein Zeigefinger liegt), um ihn auszuw\xE4hlen."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -2694,8 +2699,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6215,8 +6220,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7141,8 +7146,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

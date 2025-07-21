@@ -674,7 +674,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fortfahren
+  m_text: 'Steuerung
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -701,8 +703,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3013,8 +3015,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\nSchaue auf eine Kugel und dr\xFCcke die Triggertaste (Zeigefinger),
-    um zu reagieren."
+  m_text: "\n\n\nSuche im Raum nach der Kugel. \n\nErblickst du die Kugel und sie
+    ist gr\xFCn, dr\xFCcke die Triggertaste (Taste, auf welcher dein Zeigefinger
+    liegt), um zu reagieren. Du musst nicht mit dem Controller extra auf die Kugel
+    hinzeigen, blo\xDFes Dr\xFCcken der Triggertaste reicht.\n\nErblickst du die
+    Kugel und sie ist rot, ignoriere sie."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -3041,8 +3046,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 9
+  m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5418,8 +5423,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5527,11 +5532,12 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\n\nDieser Test trainiert deine Impulskontrolle und das gezielte Hemmen
     ungeeigneter Reaktionen \u2013 wichtige F\xE4higkeiten f\xFCr schnelle, aber
-    kontrollierte Entscheidungen im Spiel.\n\nReagiere nur auf gr\xFCne Kugeln \u2013
-    erscheint eine rote, ignoriere sie!\n\nAlle 15 Sekunden erh\xF6ht sich das Tempo
-    der Reize \u2013 die \xDCbung wird somit nach und nach schwerer. \n\nReagiere
-    schnell, aber pr\xE4zise \u2013 du hast nur einen kurzen Moment, um die richtige
-    Entscheidung zu treffen."
+    kontrollierte Entscheidungen im Spiel.\n\nNach und nach erscheint immer eine
+    einzige Kugel irgendwo im Raum, entweder ist sie rot oder gr\xFCn. Reagiere nur
+    auf die gr\xFCne Kugel \u2013 erscheint eine rote, ignoriere sie!\n\nAlle 15
+    Sekunden erh\xF6ht sich das Tempo \u2013 die \xDCbung wird somit schneller und
+    schwerer. \n\nReagiere schnell, aber pr\xE4zise \u2013 du hast nur einen kurzen
+    Moment, um die richtige Entscheidung zu treffen."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -5558,8 +5564,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6245,8 +6251,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
