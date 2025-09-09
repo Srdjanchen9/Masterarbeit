@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColorSelector : MonoBehaviour
 {
-    public string colorName; // 
+    public string colorName; 
 
     public void OnSelected()
     {
