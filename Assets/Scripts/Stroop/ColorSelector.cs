@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ColorSelector : MonoBehaviour
 {
-    public string colorName; // „rot“, „grün“, „blau“
+    public string colorName; // 
 
     public void OnSelected()
     {
         StroopManager manager = FindObjectOfType<StroopManager>();
-        if (manager != null && manager.InputAllowed()) // nur wenn erlaubt
+        if (manager != null && manager.InputAllowed()) 
         {
             manager.EvaluateAnswer(colorName);
         }
