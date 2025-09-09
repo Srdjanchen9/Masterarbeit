@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Stimulus
 {
-    public string word;       // Das Wort, das angezeigt wird (z.B. "Rot")
-    public Color color;       // Die Farbe, in der das Wort erscheint (z.B. blau)
-    public bool isCongruent;  // Gibt an, ob Wort + Farbe kongruent sind
+    public string word;       
+    public Color color;       
+    public bool isCongruent;  
 
     public Stimulus(string word, Color color)
     {
