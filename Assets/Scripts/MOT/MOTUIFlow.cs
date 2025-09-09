@@ -84,7 +84,7 @@ public class MOTUIFlow : MonoBehaviour
         stimulusSpawnPoints.SetActive(true);
         room.SetActive(true);
 
-        motManager.AssignRandomColors(); // Startet die Kugelbewegung
+        motManager.AssignRandomColors(); 
     }
 
     public void EndTask()
