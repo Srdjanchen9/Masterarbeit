@@ -39,8 +39,8 @@ public class StroopManager : MonoBehaviour
     private void Start()
     {
         resultCanvas.SetActive(false);
-        GenerateStimuli();      // Erstellt Wort-Farb-Paare
-        //ShowNextStimulus();     // Zeigt den ersten Stimulus an
+        GenerateStimuli();      
+        //ShowNextStimulus();    
     }
 
     private void GenerateStimuli()
@@ -60,7 +60,7 @@ public class StroopManager : MonoBehaviour
                 {
                     word = words[Random.Range(0, words.Count)];
                     color = colors[Random.Range(0, colors.Count)];
-                } while (word.ToLower() == ColorToName(color)); // nur inkongruente Trials
+                } while (word.ToLower() == ColorToName(color)); 
             }
             else
             {
@@ -153,7 +153,7 @@ public class StroopManager : MonoBehaviour
     {
         int index = Random.Range(0, positions.Count);
         Transform selected = positions[index];
-        positions.RemoveAt(index); // Stelle sicher, dass Position nicht doppelt vergeben wird
+        positions.RemoveAt(index); 
         return selected;
     }
 
