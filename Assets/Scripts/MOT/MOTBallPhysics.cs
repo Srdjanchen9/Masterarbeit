@@ -12,7 +12,7 @@ public class MOTBallPhysics : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
         rb.useGravity = false;
-        rb.isKinematic = true; // Startzustand: ruhend
+        rb.isKinematic = true; 
     }
 
     public void Launch(Vector3 dir, float spd)
@@ -20,7 +20,7 @@ public class MOTBallPhysics : MonoBehaviour
         direction = dir.normalized;
         speed = spd;
 
-        rb.isKinematic = false; // ❗ Bewegung wieder aktivieren
+        rb.isKinematic = false; 
         rb.velocity = direction * speed;
     }
 
@@ -35,6 +35,6 @@ public class MOTBallPhysics : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        rb.isKinematic = true; // Bewegung einfrieren
+        rb.isKinematic = true;
     }
 }
