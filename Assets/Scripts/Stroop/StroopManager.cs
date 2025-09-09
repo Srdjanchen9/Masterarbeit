@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class StroopManager : MonoBehaviour
 {
     [Header("UI")]
-    [SerializeField] private TextMeshProUGUI stimulusText; // Das angezeigte Wort
-    [SerializeField] private GameObject resultCanvas;      // Canvas mit Fehleranzahl + Button
-    [SerializeField] private TextMeshProUGUI resultText;   // Der Text in diesem Canvas
+    [SerializeField] private TextMeshProUGUI stimulusText; 
+    [SerializeField] private GameObject resultCanvas;      
+    [SerializeField] private TextMeshProUGUI resultText;  
     [SerializeField] private StroopUIFlow uiFlow;
 
     [Header("Stimulus-Logik")]
