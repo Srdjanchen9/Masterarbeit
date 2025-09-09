@@ -9,13 +9,11 @@ public class MenuMain : MonoBehaviour
 {
     [Header("UI Pages")]
     public GameObject mainMenu;
-    //public GameObject options;
-    //public GameObject about;
+    
 
     [Header("Main Menu Buttons")]
     public Button startButton;
-    //public Button optionButton;
-    //public Button aboutButton;
+   
     public Button quitButton;
     public Button backtoMainMenuButton;
 
