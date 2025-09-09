@@ -42,6 +42,6 @@ public class GoNoGoUIFlow : MonoBehaviour
         rightrayInteractor.SetActive(true);
         room.SetActive(false);
         //leftHand.SetActive(true);
-        // Optional: Nächstes UI anzeigen
+        
     }
 }
